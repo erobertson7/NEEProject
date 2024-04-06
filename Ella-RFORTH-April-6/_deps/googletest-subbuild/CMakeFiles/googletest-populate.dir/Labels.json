@@ -1,0 +1,25 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "/Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule"
+		},
+		{
+			"file" : "/Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/ellamckenney/Documents/ssh.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

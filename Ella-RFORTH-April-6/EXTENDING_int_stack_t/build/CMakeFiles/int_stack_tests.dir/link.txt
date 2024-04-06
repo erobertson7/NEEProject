@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/int_stack_tests.dir/int_stack_tests.cc.o CMakeFiles/int_stack_tests.dir/int_stack.c.o -o int_stack_tests  lib/libgtest_main.a lib/libgtest.a 
