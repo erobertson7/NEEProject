@@ -10,6 +10,7 @@ typedef enum {
     STRING,
     BOOLEAN,
     IF,
+    DUP,
     COMPARISON_OPERATOR
 } token_type_t;
 
@@ -20,11 +21,10 @@ typedef struct {
 } token_t;
 
 token_t* create_token(token_type_t type, const char *text);
+token_t* duplicate_token(token_t* tokens);
+token_t* handle_dup(token_t* tokens);
 void free_token(token_t *token);
 
 void repl_support();
 bool evaluate_condition(token_t* tokens);
-int compare_values(token_t* token1, token_t* token2);
-void free_tokens(token_t* tokens);
-
-#endif
+int co
