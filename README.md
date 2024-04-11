@@ -7,7 +7,7 @@
 ## Week One
 
 - Ella: Added a DUP function, pushed older files to git. Forked repository and sent in a pull request – Erin granted on 4/10/2024.  
-- Nancy: 
+- Nancy: Pushed files to git, Forked Repo and sent in a pull request.
 - Erin: Created repo, so I cannot fork. Granted Ella’s pull request, and pushed older files to git.
 
 ## Plans for the week:
