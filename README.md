@@ -2,3 +2,7 @@
 
 So far, I've added support for variables and boolean operations.
 I'm not sure how to go about adding the ability to have functions, loops, or REPL
+
+## Plans for the week:
+
+- Ella: Plans to try to merge files over the weekend. Can someone else update some functions?
