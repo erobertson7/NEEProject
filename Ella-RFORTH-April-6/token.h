@@ -27,4 +27,7 @@ void free_token(token_t *token);
 
 void repl_support();
 bool evaluate_condition(token_t* tokens);
-int co
+int compare_values(token_t* token1, token_t* token2);
+void free_tokens(token_t* tokens);
+
+#endif

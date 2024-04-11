@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "token.h"
 #include "repl_support.h"
 #include <stdio.h>
 
@@ -39,27 +38,34 @@ void free_token(token_t *token) {
 // THIS IS NOT WORKING RIGHT NOW!!!!!!!!!!!!!!!!!!!!!
 
 token_t* duplicate_token(token_t* token) {
-  return create_token(token->type, token->text);
+    return create_token(token->type, token->text);
 }
 
 token_t* handle_dup(token_t* tokens) {
-  if (tokens == NULL || tokens->next == NULL || tokens->next->type != DUP) {
+    if (tokens == NULL || tokens->next == NULL || tokens->next->type != DUP) {
+        return tokens;
+    }
+
+    token_t* dup_token = duplicate_token(tokens->next->next);
+    dup_token->next = tokens->next->next;
+    tokens->next->next = dup_token;
+
     return tokens;
-  }
-  tokens = tokens->next;
-  token_t* dup_token = duplicate_token(tokens->next);
-  dup_token->next = tokens->next->next;
-  tokens->next->next = dup_token;
-  return tokens->next->next;
 }
 
+
 void repl_support() {
-  while(1) {
-    char buffer[1024];
-    token_t* tokens = tokenize(buffer);
-    evaluate(tokens);
-    free_tokens(tokens);
-  }
+    while (1) {
+        char buffer[1024];
+        printf("> ");
+        fgets(buffer, sizeof(buffer), stdin);
+        if (buffer[0] == 'q') {
+            return;
+        }
+        token_t* tokens = tokenize(buffer);
+        evaluate(tokens);
+        free_tokens(tokens);
+    }
 }
 
 
@@ -101,27 +107,54 @@ void evaluate(token_t* tokens) {
     tokens = tokenize(buffer);
 }
 
-bool evaluate_condition(token_t* tokens) {
-  if (tokens == NULL) {
-    return false;  
-  }
-  if (tokens->type == STRING) {
-    token_t* next = tokens->next;
-    if (next != NULL && next->type == COMPARISON_OPERATOR) {
-      if (next->next != NULL) {
-        int result = compare_values(tokens, next->next);
-        if (strcmp(next->text, "<") == 0) {
-          return result < 0;
-        } else if (strcmp(next->text, ">") == 0) {
-          return result > 0;
-        } else if (strcmp(next->text, "==") == 0) {
-          return result == 0;
-        } else if (strcmp(next->text, "!=") == 0) {
-          return result != 0;
+void evaluate(token_t* tokens) {
+    while (tokens != NULL) {
+        switch (tokens->type) {
+            case INTEGER:
+                printf("Integer: %s\n", tokens->text);
+                break;
+            case STRING:
+                printf("String: %s\n", tokens->text);
+                break;
+            case BOOLEAN:
+                break;
+            case IF:
+                tokens = tokens->next; 
+                if (evaluate_condition(tokens)) { 
+                    tokens = tokens->next;
+                    evaluate(tokens);
+                } else {
+                    while (tokens != NULL && tokens->type != IF) {
+                        tokens = tokens->next;
+                    }
+                }
+                break;
+            default:
+                printf("Try again.\n");
         }
-      }
+        tokens = tokens->next;
     }
+}
+
+int compare_values(token_t* token1, token_t* token2) {
+  if (token1->type == INTEGER && token2->type == INTEGER) {
+    return atoi(token1->text) - atoi(token2->text);
+  } else if (token1->type == STRING && token2->type == STRING) {
+    return strcmp(token1->text, token2->text);
+  }
+  return 0;
+}
+
+
+void free_tokens(token_t* tokens) {
+  while (tokens != NULL) {
+    token_t* next = tokens->next;
+    free_token(tokens);
+    tokens = next;
   }
 }
 
-int compare_values(token_t*
+int main() {
+  repl_support();
+  return EXIT_SUCCESS;
+}
