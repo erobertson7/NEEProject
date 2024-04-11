@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(R-FORTH)
+project(ELLA-RFORTH-APRIL-6)
 
 set(CMAKE_CXX_STANDARD 11)
 

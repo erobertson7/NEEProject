@@ -1,4 +1,4 @@
-# Install script for directory: /Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH
+# Install script for directory: /Users/ellamckenney/Documents/ssh:/NEEProject/ELLA-RFORTH-APRIL-6
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH/build/googletest/cmake_install.cmake")
+  include("/Users/ellamckenney/Documents/ssh:/NEEProject/ELLA-RFORTH-APRIL-6/build/googletest/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/ellamckenney/Documents/ssh:/c-bootcamp-ellamckenney/R-FORTH/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/ellamckenney/Documents/ssh:/NEEProject/ELLA-RFORTH-APRIL-6/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
