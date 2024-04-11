@@ -35,8 +35,6 @@ void free_token(token_t *token) {
 
 // end of taken from token.c
 
-// THIS IS NOT WORKING RIGHT NOW!!!!!!!!!!!!!!!!!!!!!
-
 token_t* duplicate_token(token_t* token) {
     return create_token(token->type, token->text);
 }
