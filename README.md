@@ -8,6 +8,10 @@
 - Nancy: 
 - Erin: Created repo, so I cannot fork. Granted Ella’s pull request, and pushed older files to git.
 
+## Week Two
+
+- Ella: Merged Files on 4/13.
+
 ## Plans for the week:
 
 - Ella: Merge files & hopefully finish adding functions.
