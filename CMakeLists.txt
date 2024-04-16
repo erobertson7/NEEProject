@@ -22,7 +22,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 #add_subdirectory(FORTH_Input_Scanner)
 #add_subdirectory(Ella-RFORTH-April-6)
-add_subdirectory(Nancy-rforth_code)
+#add_subdirectory(Nancy-rforth_code)
 add_subdirectory(rforth)
 
 # You can use add_subdirectory() to add your own work. 
