@@ -16,6 +16,6 @@
 
 ## Plans for the week:
 
-- Ella: Merge files & hopefully finish adding functions.
+- Ella: Make checklist of existing functions. Look into recursive functions.
 - Nancy: Will help with Testing and in making it more like the gforth.
 - Erin: Take charge on the documentation and help with testing.
