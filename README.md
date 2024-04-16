@@ -13,7 +13,8 @@
 ## Week Two
 
 - Ella: Merged Files on 4/13.
-- Nancy:
+- Nancy: Made Corrections to Merged files 4/15-4/16, currently working on my end
+
 
 ## Plans for the week:
 
