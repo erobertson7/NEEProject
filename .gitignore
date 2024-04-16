@@ -75,4 +75,3 @@ lib/
 
 .idea/
 *-debug/
-      sudo apt update -q && sudo apt upgrade -y -q
