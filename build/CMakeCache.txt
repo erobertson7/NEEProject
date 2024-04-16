@@ -197,7 +197,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=NEEPROJECT
+CMAKE_PROJECT_NAME:STATIC=OperatingSystemsStarter
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.14.0
@@ -318,6 +318,15 @@ NEEPROJECT_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 NEEPROJECT_SOURCE_DIR:STATIC=/Users/nancyrojas/NEEProject
+
+//Value Computed by CMake
+OperatingSystemsStarter_BINARY_DIR:STATIC=/Users/nancyrojas/NEEProject/build
+
+//Value Computed by CMake
+OperatingSystemsStarter_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+OperatingSystemsStarter_SOURCE_DIR:STATIC=/Users/nancyrojas/NEEProject
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/Users/nancyrojas/NEEProject/build/_deps/googletest-build/googlemock
@@ -498,7 +507,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
