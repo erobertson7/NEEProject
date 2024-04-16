@@ -1,8 +1,8 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "rforth_functions.h"
-#include <stdio.h>
 
 // ELLA'S
 token_t* create_token(token_type_t type, const char *text) {
