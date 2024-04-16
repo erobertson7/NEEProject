@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Install script for directory: /Users/nancyrojas/NEEProject
-=======
-# Install script for directory: /workspaces/NEEProject
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,14 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-<<<<<<< HEAD
   include("/Users/nancyrojas/NEEProject/build/_deps/googletest-build/cmake_install.cmake")
   include("/Users/nancyrojas/NEEProject/build/Nancy-rforth_code/cmake_install.cmake")
   include("/Users/nancyrojas/NEEProject/build/rforth/cmake_install.cmake")
-=======
-  include("/workspaces/NEEProject/build/_deps/googletest-build/cmake_install.cmake")
-  include("/workspaces/NEEProject/build/rforth/cmake_install.cmake")
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 
 endif()
 
@@ -62,9 +53,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
 file(WRITE "/Users/nancyrojas/NEEProject/build/${CMAKE_INSTALL_MANIFEST}"
-=======
-file(WRITE "/workspaces/NEEProject/build/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

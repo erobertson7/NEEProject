@@ -54,17 +54,10 @@ RM = /opt/homebrew/Cellar/cmake/3.28.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /Users/nancyrojas/NEEProject
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/nancyrojas/NEEProject/build
-=======
-CMAKE_SOURCE_DIR = /workspaces/NEEProject
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /workspaces/NEEProject/build
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -171,63 +164,20 @@ rforth/clean: rforth/CMakeFiles/rforth_functions.dir/clean
 .PHONY : rforth/clean
 
 #=============================================================================
-<<<<<<< HEAD
-=======
-# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
-
-# All Build rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
-	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/NEEProject/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
-
-# Convenience name for target.
-gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
-
-.PHONY : gmock_main
-
-# clean rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
-	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
-
-#=============================================================================
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 # Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
 
 # All Build rule for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-<<<<<<< HEAD
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nancyrojas/NEEProject/build/CMakeFiles --progress-num=1,2 "Built target gmock"
-=======
-	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
-	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/NEEProject/build/CMakeFiles --progress-num=1,2 "Built target gmock"
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 0
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -243,7 +193,6 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean:
 # Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-<<<<<<< HEAD
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
@@ -257,20 +206,6 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_bu
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
-=======
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
-	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/NEEProject/build/CMakeFiles --progress-num=7,8 "Built target gtest_main"
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 
 # Convenience name for target.
 gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
@@ -286,28 +221,16 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
 
 # All Build rule for target.
 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
-<<<<<<< HEAD
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nancyrojas/NEEProject/build/CMakeFiles --progress-num=5,6 "Built target gtest"
-=======
-	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
-	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/NEEProject/build/CMakeFiles --progress-num=5,6 "Built target gtest"
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 0
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -403,28 +326,16 @@ Nancy-rforth_code/CMakeFiles/int_stack_tests.dir/clean:
 
 # All Build rule for target.
 rforth/CMakeFiles/rforth_functions.dir/all:
-<<<<<<< HEAD
 	$(MAKE) $(MAKESILENT) -f rforth/CMakeFiles/rforth_functions.dir/build.make rforth/CMakeFiles/rforth_functions.dir/depend
 	$(MAKE) $(MAKESILENT) -f rforth/CMakeFiles/rforth_functions.dir/build.make rforth/CMakeFiles/rforth_functions.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nancyrojas/NEEProject/build/CMakeFiles --progress-num=16,17 "Built target rforth_functions"
-=======
-	$(MAKE) -f rforth/CMakeFiles/rforth_functions.dir/build.make rforth/CMakeFiles/rforth_functions.dir/depend
-	$(MAKE) -f rforth/CMakeFiles/rforth_functions.dir/build.make rforth/CMakeFiles/rforth_functions.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspaces/NEEProject/build/CMakeFiles --progress-num=9,10 "Built target rforth_functions"
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : rforth/CMakeFiles/rforth_functions.dir/all
 
 # Build rule for subdir invocation for target.
 rforth/CMakeFiles/rforth_functions.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rforth/CMakeFiles/rforth_functions.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 0
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 rforth/CMakeFiles/rforth_functions.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
->>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : rforth/CMakeFiles/rforth_functions.dir/rule
 
 # Convenience name for target.
