@@ -10,10 +10,6 @@ add_executable(
 	int_stack.c
 	int_stack.h)
 
-add_executable(
-        int_stack_demo
-        int_stack_demo.c
-        int_stack.c)
 
 add_executable(
         int_stack_tests

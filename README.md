@@ -13,6 +13,7 @@
 ## Week Two
 
 - Ella: Merged Files on 4/13.
+- Nancy:
 
 ## Plans for the week:
 
