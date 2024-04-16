@@ -275,12 +275,6 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-ELLA-RFORTH-APRIL-6_BINARY_DIR:STATIC=/workspaces/NEEProject-NancyFork/build/Ella-RFORTH-April-6
-
-//Value Computed by CMake
-ELLA-RFORTH-APRIL-6_SOURCE_DIR:STATIC=/workspaces/NEEProject-NancyFork/Ella-RFORTH-April-6
-
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=/workspaces/NEEProject-NancyFork/build/_deps
 
