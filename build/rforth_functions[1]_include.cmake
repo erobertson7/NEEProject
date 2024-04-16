@@ -1,5 +1,0 @@
-if(EXISTS "/Users/ellamckenney/Documents/ssh:/NEEProject/build/rforth_functions[1]_tests.cmake")
-  include("/Users/ellamckenney/Documents/ssh:/NEEProject/build/rforth_functions[1]_tests.cmake")
-else()
-  add_test(rforth_functions_NOT_BUILT rforth_functions_NOT_BUILT)
-endif()
