@@ -1,4 +1,4 @@
-# Install script for directory: /workspaces/NEEProject-NancyFork
+# Install script for directory: /workspaces/NEEProject
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/workspaces/NEEProject-NancyFork/build/_deps/googletest-build/cmake_install.cmake")
-  include("/workspaces/NEEProject-NancyFork/build/rforth/cmake_install.cmake")
+  include("/workspaces/NEEProject/build/_deps/googletest-build/cmake_install.cmake")
+  include("/workspaces/NEEProject/build/rforth/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/workspaces/NEEProject-NancyFork/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/workspaces/NEEProject/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
