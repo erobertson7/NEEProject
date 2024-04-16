@@ -57,10 +57,17 @@ RM = /opt/homebrew/Cellar/cmake/3.28.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /Users/nancyrojas/NEEProject
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/nancyrojas/NEEProject/build
+=======
+CMAKE_SOURCE_DIR = /workspaces/NEEProject
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /workspaces/NEEProject/build
+>>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +139,15 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles /Users/nancyrojas/NEEProject/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nancyrojas/NEEProject/build/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles /workspaces/NEEProject/build/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/NEEProject/build/CMakeFiles 0
+>>>>>>> a5146ea231995fb43dcb0f31bd3112350168122a
 .PHONY : all
 
 # The main clean target
