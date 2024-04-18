@@ -326,5 +326,47 @@ int int_stack_capacity(int_stack_t* stk) {
     return stk->capacity;
 }
 
+// min
+
+int int_stack_min(int_stack_t *stk, int *min_value) {
+    if (stk->size == 0) {
+        printf("Stack is empty.\n");
+        return 0; // fail
+    }
+
+    int_entry_t *entry = SLIST_FIRST(&stk->head);
+    int min = entry->value;
+
+    SLIST_FOREACH(entry, &stk->head, entries) {
+        if (entry->value < min) {
+            min = entry->value;
+        }
+    }
+
+    *min_value = min;
+    return 1; // success
+}
+
+// max
+
+int int_stack_max(int_stack_t *stk, int *max_value) {
+    if (stk->size == 0) {
+        printf("Stack is empty.\n");
+        return 0; // fail
+    }
+
+    int_entry_t *entry = SLIST_FIRST(&stk->head);
+    int max = entry->value;
+
+    SLIST_FOREACH(entry, &stk->head, entries) {
+        if (entry->value > max) {
+            max = entry->value;
+        }
+    }
+
+    *max_value = max;
+    return 1; // success
+}
+
 
 
