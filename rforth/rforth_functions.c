@@ -67,45 +67,6 @@ void repl_support() {
     }
 }
 
-
-
-void evaluate(token_t* tokens) {
-  while (tokens != NULL) {
-    switch (tokens->type) {
-      case INTEGER:
-        printf("Integer: %s\n", tokens->text);
-        break;
-      case STRING:
-        printf("String: %s\n", tokens->text);
-        break;
-      case BOOLEAN:
-        break;
-      case IF:
-        tokens = tokens->next; 
-        if (evaluate_condition(tokens)) { 
-          tokens = tokens->next;
-          evaluate(tokens);
-        } else {
-          while (tokens != NULL && tokens->type != IF) {
-            tokens = tokens->next;
-          }
-        }
-        break;
-        
-      default:
-          printf("Try again.\n");
-      }
-      tokens = tokens->next;
-    }
-    printf("> ");
-    char buffer[1024];
-    fgets(buffer, sizeof(buffer), stdin);
-    if (buffer[0] == 'q') {
-        return;
-    }
-    tokens = tokenize(buffer);
-}
-
 void evaluate(token_t* tokens) {
     while (tokens != NULL) {
         switch (tokens->type) {
