@@ -15,8 +15,3 @@ add_executable(
 )
 
 add_subdirectory(googletest)
-
-target_link_libraries(repl_tests gtest_main)
-
-include(GoogleTest)
-gtest_discover_tests(repl_tests)
