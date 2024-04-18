@@ -1,6 +1,6 @@
 // int_stack.c
 
-#include "int_stack.h"
+#include "int_stack_operators.h"
 
 #include <stdlib.h>
 #include <stdio.h>
