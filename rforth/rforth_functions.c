@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include "rforth_functions.h"
+#include "int_stack_operators.c"
+#include "int_stack_operators.h"
 
 // ELLA'S
 token_t* create_token(token_type_t type, const char *text) {
@@ -149,11 +151,6 @@ void free_tokens(token_t* tokens) {
     free_token(tokens);
     tokens = next;
   }
-}
-
-int main() {
-  repl_support();
-  return EXIT_SUCCESS;
 }
 
 // ELLA'S
