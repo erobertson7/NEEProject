@@ -1,162 +1,179 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 #include "rforth_functions.h"
-#include "int_stack_operators.c"
+#include <ctype.h>
+#include <string.h>
 #include "int_stack_operators.h"
 
-// ELLA'S
-token_t* create_token(token_type_t type, const char *text) {
-    token_t *token = (token_t*)malloc(sizeof(token_t));
-    if (token == NULL) {
-        exit(EXIT_FAILURE);
-    }
-
-    token->type = type;
-    token->text = strdup(text);
-    if (token->text == NULL) {
-        free(token);
-        exit(EXIT_FAILURE);
-    }
-
-    if (strcmp(text, "true") == 0) {
-      type = BOOLEAN;
-      } else if (strcmp(text, "false") == 0) {
-        type = BOOLEAN;
-      }
-
-    return token;
-}
-
-
-void free_token(token_t *token) {
-    free(token->text);
-    free(token);
-}
-
-
-token_t* duplicate_token(token_t* token) {
-    return create_token(token->type, token->text);
-}
-
-token_t* handle_dup(token_t* tokens) {
-    if (tokens == NULL || tokens->next == NULL || tokens->next->type != DUP) {
-        return tokens;
-    }
-
-    token_t* dup_token = duplicate_token(tokens->next->next);
-    dup_token->next = tokens->next->next;
-    tokens->next->next = dup_token;
-
-    return tokens;
-}
-
-
-void repl_support() {
-    while (1) {
-        char buffer[1024];
-        printf("> ");
-        fgets(buffer, sizeof(buffer), stdin);
-        if (buffer[0] == 'q') {
-            return;
-        }
-        token_t* tokens = tokenize(buffer);
-        evaluate(tokens);
-        free_tokens(tokens);
-    }
-}
-
-void evaluate(token_t* tokens) {
-    while (tokens != NULL) {
-        switch (tokens->type) {
-            case INTEGER:
-                printf("Integer: %s\n", tokens->text);
-                break;
-            case STRING:
-                printf("String: %s\n", tokens->text);
-                break;
-            case BOOLEAN:
-                break;
-            case IF:
-                tokens = tokens->next; 
-                if (evaluate_condition(tokens)) { 
-                    tokens = tokens->next;
-                    evaluate(tokens);
-                } else {
-                    while (tokens != NULL && tokens->type != IF) {
-                        tokens = tokens->next;
-                    }
-                }
-                break;
-            default:
-                printf("Try again.\n");
-        }
-        tokens = tokens->next;
-    }
-}
-
-int compare_values(token_t* token1, token_t* token2) {
-  if (token1->type == INTEGER && token2->type == INTEGER) {
-    return atoi(token1->text) - atoi(token2->text);
-  } else if (token1->type == STRING && token2->type == STRING) {
-    return strcmp(token1->text, token2->text);
-  }
-  return 0;
-}
-
-
-void free_tokens(token_t* tokens) {
-  while (tokens != NULL) {
-    token_t* next = tokens->next;
-    free_token(tokens);
-    tokens = next;
-  }
-}
-
-// ELLA'S
-
-
-// NANCY'S
-
-int_stack_t myStack;
-const int capacity = 30;
-const int var_capacity = 100;
-
-int main() {
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t read;
-
-    int_stack_init(&myStack, capacity);
-
-    char* stringList[var_capacity];
-    int intList[var_capacity];
-    for (int i = 0; i < var_capacity; i++) {
-        stringList[i] = NULL;
-        intList[i] = 0;
-    }
-
-    printf("Type 'bye' to exit\n");
-
-    while ((read = getline(&line, &len, stdin)) != -1) {
+token_t* intialize_token(token_type_t type, const char* text){
+    token_t* newToken = (token_t*)malloc(sizeof(token_t));
+    if (newToken == NULL) {
         
-        if (line[read - 1] == '\n') {
-            line[read - 1] = '\0';
-        }
-        
-        if (strcmp(line, "bye") == 0) {
-            break;
-        }
+        return NULL;
+    }
+}
 
-        separate_token(&myStack, line, stringList, intList); 
-        print_forth(&myStack);
+token_type_t get_token_type(const char* token){
+    if (*token == '+' || *token == '-' || *token == '*' || *token == '/') {
+        return OPERATOR;
+    } else if (*token == '.'){
+        return PRINT_STK;
+    } else if (*token == ';' || *token == ':'){
+        return SYMBOL;
+    } else if (*token == '=' || *token == '<' || *token == '>' || strcmp(token, "and") == 0 || strcmp(token, "or")==0 || strcmp(token, "invert")==0){
+        return BOOLEAN;
+    }else if (isdigit((unsigned char)*token)){
+        const char* p = token + 1; 
+        while (*p) {
+            if (!isdigit((unsigned char)*p)) {
+                
+                return WORD;
+            }
+            p++;
+        }
+        return NUMBER;
+    } else {
+        return WORD;
+    }
+}
+
+const char* token_type_to_string(token_type_t type) {
+    switch (type) {
+        case OPERATOR:
+            return "OPERATOR";
+        case NUMBER:
+            return "NUMBER";
+        case SYMBOL:
+            return "SYMBOL";
+        case WORD:
+            return "WORD";
+        case BOOLEAN:
+            return "BOOLEAN";
+        case PRINT_STK:
+            return "PRINT_STK";
+        case IF:
+                return "IF";
+        default:
+            return "UNKOWN";
+    }
+}
+
+void print_forth(int_stack_t *stk){
+    int_entry_t *entry;
+    int elements[stk->size]; 
+    int i = 0;
+    int pos = 0;
+    if (stk->size == 0) {
+        printf("ok\n");
+
+    }
+
+    SLIST_FOREACH(entry, &stk->head, entries) {
+        if (i < stk->size) { 
+            elements[i++] = entry->value;
+        }
     }
 
     
-
-    free(line);
-    return 0;
+    printf("stack: ");
+    for (i = stk->size - 1; i >= 0; i--) {
+        printf("%d ", elements[i]);
+    }
+    printf("<- top\n");
 }
 
-// NANCY'S
+
+
+void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intList) {
+      
+    const char *space = " ";
+    char *token;
+    char *rest = text;
+
+    while ((token = strtok_r(rest, space, &rest))) {
+        token_type_t type = get_token_type(token);
+        
+        if (type == NUMBER) {
+            int_stack_push(stk, atoi(token)); //turns character into integer
+            //use -> *token makes the stack print out the ASCII form of the digits
+        } else if (type == PRINT_STK){ //This makes it so that when '.' is entered it pushes out the number
+            int top_value;
+            if(stk->size >= 1){
+                 if (strcmp(token, ".")==0){
+                    int_stack_pop(stk, &top_value);
+                    printf(". %d ", top_value); //prints . digit ok (ok is from print_forth)
+                }
+            } else{
+                printf("Stack underflow\n");
+            }
+        }else if (type == OPERATOR) {
+            int top_value;
+            if (stk->size > 2){     
+                if (strcmp(token, "+") == 0) {        
+                    int_stack_add(stk);
+                } else if (strcmp(token, "-") == 0) {
+                    int_stack_subtract(stk);
+                } else if (strcmp(token, "*") == 0){
+                    int_stack_multiply(stk);
+                } else if (strcmp(token, "/mod")==0){
+                    int_stack_dividemod(stk);
+                }else {
+                    int_stack_div(stk);
+                } 
+            }
+            else {
+                //int_stack_pop(stk, &top_value);
+                printf("Stack underflow\n");
+                
+            } 
+        } else if (type == WORD){
+            int top_value;
+            if (strcmp(token, "over")==0){
+                int_stack_over(stk);
+            } else if (strcmp(token, "drop")==0){
+                int_stack_pop(stk, &top_value);
+            } else if (strcmp(token, "rot")==0){
+                int_stack_rot(stk);
+            } else if (strcmp(token, "dup")==0){
+                int_stack_dup(stk);
+            } else if (strcmp(token, "swap")==0){
+                int_stack_swap(stk);
+            } else if (strcmp(token, "2swap")==0){
+                int_stack_2swap(stk);
+            } else if (strcmp(token, "2dup")==0){
+                int_stack_2dup(stk);
+            } else if (strcmp(token, "2over")==0){
+                int_stack_2over(stk);
+            } else if (strcmp(token, "2drop")==0){
+                int_stack_pop(stk, &top_value);
+                int_stack_pop(stk, &top_value);
+            } else if (strcmp(token, "mod")==0){
+                int_stack_mod(stk);
+            } else if (strcmp(token, "variable")==0){
+                //need to figure out
+            }
+        } else if (type == BOOLEAN){
+            
+            //char *next_token = strtok_r(rest, space, &rest);
+            //char *third_token = strtok_r(rest, space, &rest);
+            if (strcmp(token, "=")==0) {
+                int_stack_push(stk, int_stack_equal(stk));
+                //printf("%d\n", int_stack_equal(stk));
+            } else if (strcmp(token, "<") == 0) {
+                //printf("%d\n", int_stack_lessThan(stk));
+                int_stack_push(stk, int_stack_lessThan(stk));
+            } else if (strcmp(token, ">") == 0){
+                int_stack_push(stk, int_stack_greaterThan(stk));
+            }
+
+            if (strcmp(token, "and") == 0){                
+                int_stack_and(stk); //still figuring out 
+            } else if (strcmp(token, "or")==0){
+                int_stack_or(stk); //still figuring out 
+            } else if (strcmp(token, "invert")==0){
+                int_stack_invert(stk); //not working right
+            }
+        }
+    }
+
+}
