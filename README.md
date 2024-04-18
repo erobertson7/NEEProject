@@ -12,12 +12,12 @@
 
 ## Week Two
 
-- Ella: Merged Files on 4/13.
+- Ella: Merged Files on 4/13. Made checklist on 4/17.
 - Nancy: Made Corrections to Merged files 4/15-4/16, currently working on my end
 
 
 ## Plans for the week:
 
-- Ella: Make checklist of existing functions. Look into recursive functions.
+- Ella: Look into recursive functions.
 - Nancy: Will help with Testing and in making it more like the gforth.
 - Erin: Take charge on the documentation and help with testing.
