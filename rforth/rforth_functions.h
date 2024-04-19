@@ -1,6 +1,6 @@
 //this is an interface
-#ifndef _TOKEN_H_
-#define _TOKEN_H_
+#ifndef _RFORTHFUNCTIONS_H_
+#define _RFORTHFUNCTIONS_H_
 
 #include <stdio.h>
 #include "int_stack_operators.h"
