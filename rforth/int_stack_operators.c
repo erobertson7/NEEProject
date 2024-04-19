@@ -5,6 +5,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// add main function. to be expanded out later.
+
+int main() {
+    int_stack_t myStack;
+    int_stack_init(&myStack, 10);
+    int_stack_push(&myStack, 5);
+    int_stack_negate(&myStack);
+    return 0;
+}
+
 //this initializes the stack
 void int_stack_init(int_stack_t *stk, int capacity) {
     SLIST_INIT(&stk->head);
@@ -368,5 +378,33 @@ int int_stack_max(int_stack_t *stk, int *max_value) {
     return 1; // success
 }
 
+// abs
+
+int int_stack_abs(int_stack_t *stk) {
+    if (stk->size == 0) {
+        printf("Stack is empty.\n");
+        return 0; // fail
+    }
+
+    int_entry_t *entry = SLIST_FIRST(&stk->head);
+    int abs_value = abs(entry->value);
+    entry->value = abs_value;
+
+    return 1; // success
+}
+
+// negate
+
+int int_stack_negate(int_stack_t *stk) {
+    if (stk->size == 0) {
+        printf("Stack is empty.\n");
+        return 0; // fail
+    }
+
+    int_entry_t *entry = SLIST_FIRST(&stk->head);
+    entry->value = -(entry->value); // Negate the top element
+
+    return 1; // success
+}
 
 
