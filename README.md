@@ -19,6 +19,7 @@
 ## Week Three
 
 - Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git).
+- Nancy: Debugging Functions
 
 ## Plans for the week:
 
