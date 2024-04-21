@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 // add main function. to be expanded out later.
 
@@ -337,74 +338,151 @@ int int_stack_capacity(int_stack_t* stk) {
 }
 
 // min
+int int_stack_min(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
 
-int int_stack_min(int_stack_t *stk, int *min_value) {
-    if (stk->size == 0) {
-        printf("Stack is empty.\n");
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
         return 0; // fail
     }
 
     int_entry_t *entry = SLIST_FIRST(&stk->head);
-    int min = entry->value;
+    int min_value = entry->value;
 
-    SLIST_FOREACH(entry, &stk->head, entries) {
-        if (entry->value < min) {
-            min = entry->value;
+    while (entry != NULL) {
+        if (entry->value < min_value) {
+            min_value = entry->value;
         }
+        entry = SLIST_NEXT(entry, entries);
     }
 
-    *min_value = min;
-    return 1; // success
+    return int_stack_push(stk, min_value); // success only if last operation succeeds
 }
+
 
 // max
 
-int int_stack_max(int_stack_t *stk, int *max_value) {
-    if (stk->size == 0) {
-        printf("Stack is empty.\n");
+int int_stack_max(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
         return 0; // fail
     }
 
     int_entry_t *entry = SLIST_FIRST(&stk->head);
-    int max = entry->value;
+    int max_value = entry->value;
 
-    SLIST_FOREACH(entry, &stk->head, entries) {
-        if (entry->value > max) {
-            max = entry->value;
+    while (entry != NULL) {
+        if (entry->value > max_value) {
+            max_value = entry->value;
         }
+        entry = SLIST_NEXT(entry, entries);
     }
 
-    *max_value = max;
-    return 1; // success
+    return int_stack_push(stk, max_value); // success only if last operation succeeds
 }
 
 // abs
 
 int int_stack_abs(int_stack_t *stk) {
-    if (stk->size == 0) {
-        printf("Stack is empty.\n");
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
         return 0; // fail
     }
 
-    int_entry_t *entry = SLIST_FIRST(&stk->head);
-    int abs_value = abs(entry->value);
-    entry->value = abs_value;
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
 
-    return 1; // success
+    int abs_value = abs(top_value);
+    return int_stack_push(stk, abs_value); // success only if last operation succeeds
 }
 
 // negate
 
 int int_stack_negate(int_stack_t *stk) {
-    if (stk->size == 0) {
-        printf("Stack is empty.\n");
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+
+    int negated_value = -(top_value);
+    return int_stack_push(stk, negated_value); // success only if last operation succeeds
+}
+
+// floor
+int int_stack_floor(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+    int floor_value = floor(top_value);
+    return int_stack_push(stk, floor_value); // success only if last operation succeeds
+}
+
+// ceil
+int int_stack_ceil(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+
+    int ceil_value = ceil(top_value);
+    return int_stack_push(stk, ceil_value); // success only if last operation succeeds
+}
+
+// pick
+int int_stack_pick(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+
+    return int_stack_push(stk, top_value); // success only if last operation succeeds
+}
+
+// pickn 
+
+int int_stack_pickn(int_stack_t *stk, int n) {
+    if (stk->size < n + 1) {
+        printf("Stack does not have enough elements for pickn.\n");
         return 0; // fail
     }
 
     int_entry_t *entry = SLIST_FIRST(&stk->head);
-    entry->value = -(entry->value); // Negate the top element
+    for (int i = 0; i < n; i++) {
+        entry = SLIST_NEXT(entry, entries);
+    }
 
-    return 1; // success
+    int picked_value = entry->value;
+    return int_stack_push(stk, picked_value); // success only if last operation succeeds
 }
 
 
