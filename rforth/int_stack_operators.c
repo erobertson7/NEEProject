@@ -7,7 +7,7 @@
 #include <math.h>
 
 // add main function. to be expanded out later.
-
+/*
 int main() {
     int_stack_t myStack;
     int_stack_init(&myStack, 10);
@@ -15,6 +15,8 @@ int main() {
     int_stack_negate(&myStack);
     return 0;
 }
+*/
+
 
 //this initializes the stack
 void int_stack_init(int_stack_t *stk, int capacity) {
