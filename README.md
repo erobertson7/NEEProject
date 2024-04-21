@@ -22,6 +22,6 @@
 
 ## Plans for the week:
 
-- Ella: Add remaining 6 functions agreed upon, edit main function. Start making functions recursive.
+- Ella: Add remaining 2 functions agreed upon, edit main function. Start making functions recursive.
 - Nancy: Will help with Testing and in making it more like the gforth.
 - Erin: Take charge on the documentation and help with testing.
