@@ -151,6 +151,8 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
                 int_stack_mod(stk);
             } else if (strcmp(token, "variable")==0){
                 //need to figure out
+            } else if (strcmp(token, "negate")==0){
+                int_stack_negate(stk);
             }
         } else if (type == BOOLEAN){
             
