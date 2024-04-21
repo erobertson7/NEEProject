@@ -488,4 +488,11 @@ int int_stack_pickn(int_stack_t *stk, int n) {
     return int_stack_push(stk, picked_value); // success only if last operation succeeds
 }
 
+//depth
+
+int int_stack_depth(int_stack_t* stk) {
+    int depth = int_stack_size(stk); //gets size of stack even when stack is empty it adds 0 to stack like gforth
+    return int_stack_push(stk, depth);
+}
+
 
