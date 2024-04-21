@@ -422,6 +422,7 @@ int int_stack_negate(int_stack_t *stk) {
     }
 
     int negated_value = -(top_value);
+    int_stack_pop(stk, &top_value); //Remove the original top value from stack
     return int_stack_push(stk, negated_value); // success only if last operation succeeds
 }
 
