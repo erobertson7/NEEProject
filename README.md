@@ -18,6 +18,8 @@
 
 ## Week Three
 
+- Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git).
+
 ## Plans for the week:
 
 - Ella: Add remaining 6 functions agreed upon, edit main function. Start making functions recursive.
