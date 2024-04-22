@@ -8,7 +8,6 @@
 token_t* intialize_token(token_type_t type, const char* text){
     token_t* newToken = (token_t*)malloc(sizeof(token_t));
     if (newToken == NULL) {
-        
         return NULL;
     }
 }
@@ -63,9 +62,8 @@ void print_forth(int_stack_t *stk){
     int elements[stk->size]; 
     int i = 0;
     int pos = 0;
-    if (stk->size == 0) {
-        printf("ok\n");
-
+    if (stk->size == 0) { //if stack is empty then it's not printed and the message is only printed
+        printf("  ok?\n"); //I have the question mark to distinguish it in testing it to make more like forth
     }
 
     SLIST_FOREACH(entry, &stk->head, entries) {
@@ -74,12 +72,14 @@ void print_forth(int_stack_t *stk){
         }
     }
 
-    
-    printf("stack: ");
-    for (i = stk->size - 1; i >= 0; i--) {
-        printf("%d ", elements[i]);
+    if (stk->size > 0) { //if at least 1 element is in the stack it gets printed
+        printf("stack: ");
+        for (i = stk->size - 1; i >= 0; i--) {
+            printf("%d ", elements[i]);
+        }
+        printf("<- top\n");
     }
-    printf("<- top\n");
+    
 }
 
 
@@ -101,10 +101,13 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             if(stk->size >= 1){
                  if (strcmp(token, ".")==0){
                     int_stack_pop(stk, &top_value);
-                    printf(". %d ", top_value); //prints . digit ok (ok is from print_forth)
+                    printf(". %d", top_value); //prints . digit ok (ok is from print_forth)
+                    printf("  ok\n");
+                } //April 21: Trying to get this to print on the same line as input "."
+            } else if (stk->size == 0){
+                if (strcmp(token, ".")==0){
+                    printf("Stack underflow?\n");
                 }
-            } else{
-                printf("Stack underflow\n");
             }
         }else if (type == OPERATOR) {
             int top_value;

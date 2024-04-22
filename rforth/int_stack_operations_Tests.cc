@@ -28,7 +28,7 @@ TEST(IntStackTests, int_stack_depth){
     int_stack_print(&stack, stdout); //prints stack, just so i can see how the tests working
 
 }
-//
+//Test for Negate
 TEST(IntStackTests, int_stack_negate){
     int_stack_t stack;
     int top_value;
@@ -43,6 +43,7 @@ TEST(IntStackTests, int_stack_negate){
     int_stack_push(&stack, top_value);
     int_stack_print(&stack, stdout);
 }
+//Test for 
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
