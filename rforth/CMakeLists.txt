@@ -22,4 +22,4 @@ target_link_libraries(
     -lpthread
 )
 include(GoogleTest)
-gtest_discover_tests(int_stack_tests)
+gtest_discover_tests(int_stack_operations_Tests)

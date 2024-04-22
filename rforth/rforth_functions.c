@@ -154,6 +154,9 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             } else if (strcmp(token, "negate")==0){
                 int_stack_negate(stk);
             }
+            else if (strcmp(token, "depth")==0){
+                int_stack_depth(stk);
+            }
         } else if (type == BOOLEAN){
             
             //char *next_token = strtok_r(rest, space, &rest);
