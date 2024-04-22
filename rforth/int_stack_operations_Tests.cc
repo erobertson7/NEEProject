@@ -21,12 +21,27 @@ TEST(IntStackTests, int_stack_depth){
     int_stack_push(&stack, 100);
     int_stack_push(&stack, 72);
     ASSERT_TRUE(int_stack_depth(&stack)); //running depth function)
-    int_stack_print(&stack, stdout); //prints stack, just so i can see how the tests working
     int top_value;
     int_stack_pop(&stack, &top_value);
     ASSERT_EQ(top_value,int_stack_size(&stack));
+    int_stack_push(&stack, top_value);//prints stack, just so i can see how the tests working
     int_stack_print(&stack, stdout); //prints stack, just so i can see how the tests working
 
+}
+//
+TEST(IntStackTests, int_stack_negate){
+    int_stack_t stack;
+    int top_value;
+    int_stack_init(&stack, 5); //initialize stack
+    int_stack_push(&stack, 2);
+    int_stack_push(&stack, 2);
+    int_stack_push(&stack, 2);
+    int_stack_push(&stack, 10);
+    ASSERT_TRUE(int_stack_negate(&stack));
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, -10);
+    int_stack_push(&stack, top_value);
+    int_stack_print(&stack, stdout);
 }
 int main(int argc, char **argv)
 {
