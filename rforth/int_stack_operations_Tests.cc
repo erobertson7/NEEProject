@@ -43,9 +43,6 @@ TEST(IntStackTests, int_stack_negate){
     int_stack_push(&stack, top_value);
     int_stack_print(&stack, stdout);
 }
-<<<<<<< HEAD
-//Test for 
-=======
 
 //Test for min
 TEST(IntStackTests, int_stack_min){
@@ -81,7 +78,6 @@ TEST(IntStackTests, int_stack_max){
     int_stack_print(&stack, stdout);
 }    
 
->>>>>>> 5420b114825f4edfb4be35dfd452d2a128b92a5c
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
