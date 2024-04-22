@@ -43,6 +43,24 @@ TEST(IntStackTests, int_stack_negate){
     int_stack_push(&stack, top_value);
     int_stack_print(&stack, stdout);
 }
+
+//Test for min
+TEST(IntStackTests, int_stack_min){
+    int_stack_t stack;
+    int min_value;
+    int_stack_init(&stack, 5);
+    int_stack_push(&stack, 3);
+    int_stack_push(&stack, -4);
+    int_stack_push(&stack, 11);
+    int_stack_push(&stack, 6);
+    int_stack_push(&stack, 2);
+    ASSERT_TRUE(int_stack_min(&stack));
+    int_stack_pop(&stack, &min_value);
+    ASSERT_EQ(min_value, -4);
+    int_stack_push(&stack, top_value);
+    int_stack_print(&stack, stdout);
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
