@@ -78,6 +78,44 @@ TEST(IntStackTests, int_stack_max){
     int_stack_print(&stack, stdout);
 }    
 
+//Test for floor
+/*
+TEST(IntStackTests, int_stack_floor){
+    int_stack_t stack;
+    int top_value;
+    int_stack_init(&stack, 3);
+    int_stack_push(&stack, 2.1);
+    int_stack_push(&stack, -4.6);
+    int_stack_push(&stack, 5);
+    ASSERT_TRUE(int_stack_floor(&stack));
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 5);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, -5);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 2);
+}
+*/
+
+//Test for ceil
+/*
+TEST(IntStackTests, int_stack_ceil){
+    int_stack_t stack;
+    int top_value;
+    int_stack_init(&stack, 3);
+    int_stack_push(&stack, 2.1);
+    int_stack_push(&stack, -4.6);
+    int_stack_push(&stack, 5);
+    ASSERT_TRUE(int_stack_ceil(&stack));
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 5);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, -4);
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 3);
+}
+*/
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
