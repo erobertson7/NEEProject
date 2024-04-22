@@ -51,5 +51,7 @@ extern int int_stack_negate(int_stack_t *stk);
 extern int int_stack_depth(int_stack_t *stk);
 extern int int_stack_min(int_stack_t *stk);
 extern int int_stack_max(int_stack_t *stk);
+extern int int_stack_floor(int_stack_t *stk);
+extern int int_stack_ceil(int_stack_t *stk);
 
 #endif // INT_STACK_H
