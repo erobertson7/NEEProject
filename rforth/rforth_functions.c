@@ -183,7 +183,7 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
                 int_stack_floor(stk);
             }
             else if(strcmp(token, "abs")==0){
-                //int_stack_abs(stk);
+                int_stack_abs(stk);
             }
         } else if (type == BOOLEAN){
             
