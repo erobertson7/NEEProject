@@ -405,6 +405,7 @@ int int_stack_abs(int_stack_t *stk) {
     }
 
     int abs_value = abs(top_value);
+    int_stack_pop(stk, &top_value);
     return int_stack_push(stk, abs_value); // success only if last operation succeeds
 }
 
