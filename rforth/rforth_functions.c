@@ -14,8 +14,18 @@ token_t* intialize_token(token_type_t type, const char* text){
 
 token_type_t get_token_type(const char* token){
     if (*token == '+' || *token == '-' || *token == '*' || *token == '/') {
+        if (*token == '-') {
+            const char* p = token + 1; 
+            while (*p) {
+                if (isdigit((unsigned char)*p)) {
+                    return WORD;
+                }
+                p++;
+            }
+            return NUMBER;
+        }
         return OPERATOR;
-    } else if (*token == '.'){
+    }else if (*token == '.'){
         return PRINT_STK;
     } else if (*token == ';' || *token == ':'){
         return SYMBOL;
@@ -96,7 +106,7 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
         if (type == NUMBER) {
             int_stack_push(stk, atoi(token)); //turns character into integer
             //use -> *token makes the stack print out the ASCII form of the digits
-        } else if (type == PRINT_STK){ //This makes it so that when '.' is entered it pushes out the number
+        }else if (type == PRINT_STK){ //This makes it so that when '.' is entered it pushes out the number
             int top_value;
             if(stk->size >= 1){
                  if (strcmp(token, ".")==0){
@@ -166,20 +176,14 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             else if(strcmp(token, "max")==0){
                 int_stack_max(stk);
             }
-            else if(strcmp(token, "abs")==0){
-                int_stack_abs(stk);
-            }
-            else if(strcmp(token, "pick")==0){
-                int_stack_pick(stk);
-            }
-            else if(strcmp(token, "pickn")==0){
-                int_stack_pickn(stk);
-            }
             else if(strcmp(token, "ceil")==0){
                 int_stack_ceil(stk);
             }
             else if(strcmp(token, "floor")==0){
                 int_stack_floor(stk);
+            }
+            else if(strcmp(token, "abs")==0){
+                int_stack_abs(stk);
             }
         } else if (type == BOOLEAN){
             
