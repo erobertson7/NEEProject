@@ -495,4 +495,45 @@ int int_stack_depth(int_stack_t* stk) {
     return int_stack_push(stk, depth);
 }
 
+// repeat
 
+int int_stack_repeat(int_stack_t *stk, int n) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (!int_stack_push(stk, top_value)) {
+            return 0; // fail
+        }
+    }
+
+    return 1; // success
+}
+
+// loop - with push n number of times
+
+int int_stack_loop(int_stack_t *stk, int n) {
+    if (n <= 0) {
+        printf("Invalid loop count.\n");
+        return 0; // fail
+    }
+
+    for (int i = 0; i < n; i++) {
+        int top_value;
+        if (!int_stack_top(stk, &top_value)) {
+            return 0; // fail
+        }
+        if (!int_stack_push(stk, top_value)) {
+            return 0; // fail
+        }
+    }
+
+    return 1; // success
+}
