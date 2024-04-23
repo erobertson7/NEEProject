@@ -55,5 +55,5 @@ extern int int_stack_max(int_stack_t *stk);
 extern int int_stack_floor(int_stack_t *stk);
 extern int int_stack_ceil(int_stack_t *stk);
 extern int int_stack_abs(int_stack_t *stk);
-
+extern int int_stack_pickn(int_stack_t *stk, int n);
 #endif // INT_STACK_H

@@ -483,6 +483,9 @@ int int_stack_pickn(int_stack_t *stk, int n) {
     int_entry_t *entry = SLIST_FIRST(&stk->head);
     for (int i = 0; i < n; i++) {
         entry = SLIST_NEXT(entry, entries);
+        if(i==n){
+                int picked_value = entry->value;
+        }
     }
 
     int picked_value = entry->value;
