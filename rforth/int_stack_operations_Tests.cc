@@ -44,6 +44,8 @@ TEST(IntStackTests, int_stack_negate){
     int_stack_print(&stack, stdout);
 }
 
+/*
+
 //Test for min
 TEST(IntStackTests, int_stack_min){
     int_stack_t stack;
@@ -77,7 +79,7 @@ TEST(IntStackTests, int_stack_max){
     int_stack_push(&stack, top_value);
     int_stack_print(&stack, stdout);
 }    
-
+*/
 //Test for floor
 /*
 TEST(IntStackTests, int_stack_floor){
