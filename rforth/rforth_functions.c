@@ -14,7 +14,7 @@ token_t* intialize_token(token_type_t type, const char* text){
 
 token_type_t get_token_type(const char* token){
     if (*token == '+' || *token == '-' || *token == '*' || *token == '/') {
-        if (*token == '-') {
+        /*if (*token == '-') {
             const char* p = token + 1; 
             while (*p) {
                 if (isdigit((unsigned char)*p)) {
@@ -22,8 +22,8 @@ token_type_t get_token_type(const char* token){
                 }
                 p++;
             }
-            return NUMBER;
-        }
+            return NEG_NUMBER;
+        }*/
         return OPERATOR;
     }else if (*token == '.'){
         return PRINT_STK;
@@ -121,7 +121,7 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             }
         }else if (type == OPERATOR) {
             int top_value;
-            if (stk->size > 2){     
+            if (stk->size >= 2){     
                 if (strcmp(token, "+") == 0) {        
                     int_stack_add(stk);
                 } else if (strcmp(token, "-") == 0) {
@@ -183,7 +183,7 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
                 int_stack_floor(stk);
             }
             else if(strcmp(token, "abs")==0){
-                int_stack_abs(stk);
+                //int_stack_abs(stk);
             }
         } else if (type == BOOLEAN){
             
