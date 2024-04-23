@@ -18,12 +18,12 @@
 
 ## Week Three
 
-- Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git).
+- Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git). Added repeat/loop functionality - loop only works for push n at the moment - on 4/22.
 - Nancy: Debugging newly added Functions 4/21, adding tests for functions
 - Erin: Working on continuous documentation, adding tests for functions on 4/21 and 4/22 in collaboration with Nancy
 
 ## Plans for the week:
 
-- Ella: Add remaining 2 functions agreed upon, edit main function. Start making functions recursive.
+- Ella: Start making functions recursive.
 - Nancy: Will help with Testing and in making it more like the gforth.
 - Erin: Take charge on the documentation and help with testing.
