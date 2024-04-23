@@ -163,6 +163,24 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             else if(strcmp(token, "min")==0){
                 int_stack_min(stk);
             }
+            else if(strcmp(token, "max")==0){
+                int_stack_max(stk);
+            }
+            else if(strcmp(token, "abs")==0){
+                int_stack_abs(stk);
+            }
+            else if(strcmp(token, "pick")==0){
+                int_stack_pick(stk);
+            }
+            else if(strcmp(token, "pickn")==0){
+                int_stack_pickn(stk);
+            }
+            else if(strcmp(token, "ceil")==0){
+                int_stack_ceil(stk);
+            }
+            else if(strcmp(token, "floor")==0){
+                int_stack_floor(stk);
+            }
         } else if (type == BOOLEAN){
             
             //char *next_token = strtok_r(rest, space, &rest);
