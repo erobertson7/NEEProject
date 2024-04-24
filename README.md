@@ -22,6 +22,10 @@
 - Nancy: Debugging newly added Functions 4/21, adding tests for functions, Debugging Functions & Tests and overall program to be able to run all functions that have been added 4/22-4/23
 - Erin: Working on continuous documentation, adding tests for functions on 4/21 and 4/22 in collaboration with Nancy
 
+## Week Four - Debugging!
+Tests: There are functioning tests for: Min,Max,abs,negate. We are working on floor,ceil,pick,pickn still.
+Functions: The following functions are working as of right now: min,max,abs,pick,pickn,negate. Working on getting Ceil and Floor working. 
+
 ## Plans for the week:
 
 - Ella: Start making functions recursive.
