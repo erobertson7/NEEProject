@@ -185,6 +185,10 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             else if(strcmp(token, "abs")==0){
                 int_stack_abs(stk);
             }
+            else if(strcmp(token, "pick")==0){
+                int_stack_pick(stk);
+                printf("PICK USED!\n");
+            }
             else if (strncmp(token, "pickn", 4) == 0 && isdigit(token[4])) { //the 4 gets replaced afterwards this is just meant to detect pick
                 //Extract the number from the token string after "pick"
                 int n = atoi(token + 4);
