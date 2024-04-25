@@ -18,7 +18,7 @@
 
 ## Week Three
 
-- Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git). Added repeat/loop functionality - loop only works for push n at the moment - on 4/22.
+- Ella: Updated results format, added FLOOR/CEIL/PICK/PICKN functionality on 4/21 (FLOOR/CEIL developed on 4/20, forgot to push to git). Added repeat/loop functionality - loop only works for push n at the moment - on 4/22. Updated min/max to include recursion - tests may need to be rerun - on 4/24. Will discuss in meeting on 4/25.
 - Nancy: Debugging newly added Functions 4/21, adding tests for functions, Debugging Functions & Tests and overall program to be able to run all functions that have been added 4/22-4/23
 - Erin: Working on continuous documentation, adding tests for functions on 4/21 and 4/22 in collaboration with Nancy
 
