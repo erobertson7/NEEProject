@@ -339,8 +339,21 @@ int int_stack_capacity(int_stack_t* stk) {
     return stk->capacity;
 }
 
-// min
-int int_stack_min(int_stack_t *stk) {
+// min with recursion
+
+int int_stack_min_recursive_helper(int_stack_t *stk, int_entry_t *entry, int min_value) {
+    if (entry == NULL) {
+        return int_stack_push(stk, min_value); // Push the minimum value back to the stack
+    }
+
+    if (entry->value < min_value) {
+        min_value = entry->value; // Update the minimum value if a smaller value is found
+    }
+
+    return int_stack_min_recursive_helper(stk, SLIST_NEXT(entry, entries), min_value); // Recursive call
+}
+
+int int_stack_min_recursive(int_stack_t *stk) {
     if (stk->size < 1) {
         printf("Stack has less than 1 element.\n");
         return 0; // fail
@@ -354,18 +367,23 @@ int int_stack_min(int_stack_t *stk) {
     int_entry_t *entry = SLIST_FIRST(&stk->head);
     int min_value = entry->value;
 
-    while (entry != NULL) {
-        if (entry->value < min_value) {
-            min_value = entry->value;
-        }
-        entry = SLIST_NEXT(entry, entries);
-    }
-
-    return int_stack_push(stk, min_value); // success only if last operation succeeds
+    return parse_if(int_stack_min_recursive_helper(stk, SLIST_NEXT(entry, entries), min_value), stk->size > 0); // Call the recursive helper function with the initial values
 }
 
 
 // max
+
+int int_stack_max_recursive_helper(int_stack_t *stk, int_entry_t *entry, int max_value) {
+    if (entry == NULL) {
+        return int_stack_push(stk, max_value); // success only if last operation succeeds
+    }
+
+    if (entry->value > max_value) {
+        max_value = entry->value;
+    }
+
+    return int_stack_max_recursive_helper(stk, SLIST_NEXT(entry, entries), max_value);
+}
 
 int int_stack_max(int_stack_t *stk) {
     if (stk->size < 1) {
@@ -381,14 +399,7 @@ int int_stack_max(int_stack_t *stk) {
     int_entry_t *entry = SLIST_FIRST(&stk->head);
     int max_value = entry->value;
 
-    while (entry != NULL) {
-        if (entry->value > max_value) {
-            max_value = entry->value;
-        }
-        entry = SLIST_NEXT(entry, entries);
-    }
-
-    return int_stack_push(stk, max_value); // success only if last operation succeeds
+    return int_stack_max_recursive_helper(stk, SLIST_NEXT(entry, entries), max_value);
 }
 
 // abs
