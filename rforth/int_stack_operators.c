@@ -1,10 +1,8 @@
-// int_stack.c
-
 #include "int_stack_operators.h"
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 // add main function. to be expanded out later.
 /*
@@ -339,7 +337,8 @@ int int_stack_capacity(int_stack_t* stk) {
     return stk->capacity;
 }
 
-// min with recursion
+// min with recursion - This was the recursive method that Ella had created but for somereason it wouldn't run anymore after I tried adding more tests and would say that it wasn't defined.
+/*
 
 int int_stack_min_recursive_helper(int_stack_t *stk, int_entry_t *entry, int min_value) {
     if (entry == NULL) {
@@ -353,7 +352,7 @@ int int_stack_min_recursive_helper(int_stack_t *stk, int_entry_t *entry, int min
     return int_stack_min_recursive_helper(stk, SLIST_NEXT(entry, entries), min_value); // Recursive call
 }
 
-int int_stack_min_recursive(int_stack_t *stk) {
+int int_stack_min(int_stack_t *stk) {
     if (stk->size < 1) {
         printf("Stack has less than 1 element.\n");
         return 0; // fail
@@ -369,7 +368,36 @@ int int_stack_min_recursive(int_stack_t *stk) {
 
     return parse_if(int_stack_min_recursive_helper(stk, SLIST_NEXT(entry, entries), min_value), stk->size > 0); // Call the recursive helper function with the initial values
 }
+*/
 
+int find_min_recursively(int_entry_t *entry, int current_min) {
+    if (entry == NULL) { //goes until null at end of list
+        return current_min;
+    }
+
+    if (entry->value < current_min) { //checks to see if it is lower than current and will go off if else statment
+        return find_min_recursively(SLIST_NEXT(entry, entries), entry->value);
+    } else {
+        return find_min_recursively(SLIST_NEXT(entry, entries), current_min);
+    }
+}
+
+int int_stack_min(int_stack_t *stk) {
+    if (stk->size < 1) {
+        printf("Stack has less than 1 element.\n");
+        return 0; // fail
+    }
+
+    int top_value;
+    if (!int_stack_top(stk, &top_value)) {
+        return 0; // fail
+    }
+
+    int_entry_t *entry = SLIST_FIRST(&stk->head);
+    int min_value = find_min_recursively(SLIST_NEXT(entry, entries), entry->value); //made it so that the recursive method went into the variable and then got pushed in return
+
+    return int_stack_push(stk, min_value); // success only if last operation succeeds
+}
 
 // max
 
