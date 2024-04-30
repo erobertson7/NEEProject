@@ -20,9 +20,9 @@ int main() {
         stringList[i] = NULL;
         intList[i] = 0;
     }
-
+    printf("\033[0;95m"); //makes text pink
     printf("Type 'TESTER' to exit\n");//Changed for testing to get files to build and run
-
+    printf("\033[0m"); //resets back to original text color
     while ((read = getline(&line, &len, stdin)) != -1) {
         
         if (line[read - 1] == '\n') {
@@ -30,6 +30,9 @@ int main() {
         }
         
         if (strcmp(line, "bye") == 0) {
+            printf("\033[0;95m"); //makes text pink
+            printf("Closing program\n");
+            printf("\033[0m"); //resets back to original text color
             break;
         }
 
