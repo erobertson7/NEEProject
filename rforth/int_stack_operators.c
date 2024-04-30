@@ -567,7 +567,6 @@ int int_stack_loop(int_stack_t *stk, int n) {
         printf("Invalid loop count.\n");
         return 0; // fail
     }
-
     for (int i = 0; i < n; i++) {
         int top_value;
         if (!int_stack_top(stk, &top_value)) {

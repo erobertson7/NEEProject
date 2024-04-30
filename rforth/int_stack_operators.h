@@ -57,4 +57,6 @@ extern int int_stack_ceil(int_stack_t *stk);
 extern int int_stack_abs(int_stack_t *stk);
 extern int int_stack_pickn(int_stack_t *stk, int n);
 extern int int_stack_pick(int_stack_t *stk);
+extern int int_stack_loop(int_stack_t *stk, int n);
+extern int int_stack_repeat(int_stack_t *stk, int n);
 #endif // INT_STACK_H
