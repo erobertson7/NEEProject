@@ -73,7 +73,7 @@ void print_forth(int_stack_t *stk){
     int i = 0;
     int pos = 0;
     if (stk->size == 0) { //if stack is empty then it's not printed and the message is only printed
-        printf("  ok?\n"); //I have the question mark to distinguish it in testing it to make more like forth
+        printf("  ok\n"); //I have the question mark to distinguish it in testing it to make more like forth
     }
 
     SLIST_FOREACH(entry, &stk->head, entries) {
