@@ -481,16 +481,110 @@ TEST(IntStackTests, int_stack_abs){
     int_stack_print(&stack, stdout);
 }
 TEST(IntStackTests, int_stack_pick){//pick
+    // Initialize stack
+    int_stack_t stack;
+    int_stack_init(&stack, 5);
 
+    // Push values onto the stack
+    int_stack_push(&stack, 1);
+    int_stack_push(&stack, 3);
+    int_stack_push(&stack, -9);
+
+    // Print stack before pick operation
+    printf("Before pick operation:\n");
+    int_stack_print(&stack, stdout);
+
+    // Perform pick operation
+    ASSERT_TRUE(int_stack_pick(&stack));
+
+    // Check the top value after pick operation
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, -9);
+    int_stack_push(&stack, top_value);
+
+    // Print stack after pick operation
+    printf("After pick operation:\n");
+    int_stack_print(&stack, stdout);
 }
 TEST(IntStackTests, int_stack_pickn){//pickn
+    // Initialize stack
+    int_stack_t stack;
+    int_stack_init(&stack, 7);
 
+    // Push values onto the stack
+    int_stack_push(&stack, 1);
+    int_stack_push(&stack, 3);
+    int_stack_push(&stack, -9);
+    int_stack_push(&stack, 5);
+    int_stack_push(&stack, 7);
+
+    // Print stack before pickn operation
+    //printf("Before pickn operation:\n");
+    //int_stack_print(&stack, stdout);
+
+    // Perform pickn operation
+    ASSERT_TRUE(int_stack_pickn(&stack, 2));
+
+    // Check the top value after pickn operation
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, -9);
+    int_stack_push(&stack, top_value);
+
+    // Print stack after pickn operation
+    //printf("After pickn operation:\n");
+    //int_stack_print(&stack, stdout);
 }
 TEST(IntStackTests, int_stack_loop){//loop
+    // Initialize stack
+    int_stack_t stack;
+    int_stack_init(&stack, 7);
 
+    // Push a value onto the stack
+    int_stack_push(&stack, 42);
+
+    // Print stack before loop operation
+    //printf("Before loop operation:\n");
+    //int_stack_print(&stack, stdout);
+
+    // Perform loop operation
+    ASSERT_TRUE(int_stack_loop(&stack, 3));
+
+    // Check the top value after loop operation
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 42);
+    int_stack_push(&stack, top_value);
+
+    // Print stack after loop operation
+    //printf("After loop operation:\n");
+    //int_stack_print(&stack, stdout);
 }
 TEST(IntStackTests, int_stack_repeat){ //repeat
+// Initialize stack
+    int_stack_t stack;
+    int_stack_init(&stack, 7);
 
+    // Push a value onto the stack
+    int_stack_push(&stack, 42);
+
+    // Print stack before repeat operation
+    //printf("Before repeat operation:\n");
+    //int_stack_print(&stack, stdout);
+
+    // Perform repeat operation
+    ASSERT_TRUE(int_stack_repeat(&stack, 3));
+
+    // Check the top value after repeat operation
+    int top_value;
+    int_stack_pop(&stack, &top_value);
+    ASSERT_EQ(top_value, 42);
+    int_stack_push(&stack, top_value);
+
+    // Print stack after repeat operation
+    //printf("After repeat operation:\n");
+    //int_stack_print(&stack, stdout);
 }
 
 //Test for floor
