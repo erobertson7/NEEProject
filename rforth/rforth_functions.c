@@ -187,7 +187,6 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
             }
             else if(strcmp(token, "pick")==0){
                 int_stack_pick(stk);
-                printf("PICK USED!\n");
             }
             else if (strncmp(token, "pickn", 4) == 0 && isdigit(token[4])) { //the 4 gets replaced afterwards this is just meant to detect pick
                 //Extract the number from the token string after "pick"
@@ -195,18 +194,26 @@ void separate_token(int_stack_t *stk, char *text, char* stringList[], int *intLi
                 // Call int_stack_pickn with the extracted number
                 int_stack_pickn(stk, n);
             }
+            else if (strncmp(token, "repeat", 4) == 0 && isdigit(token[4])){
+                int n = atoi(token + 4);
+                int_stack_repeat(stk, n);
+            }
+            else if (strncmp(token, "loop", 4) == 0 && isdigit(token[4])){
+                int n = atoi(token + 4);
+                int_stack_loop(stk, n);
+            }
         } else if (type == BOOLEAN){
             
             //char *next_token = strtok_r(rest, space, &rest);
             //char *third_token = strtok_r(rest, space, &rest);
             if (strcmp(token, "=")==0) {
-                int_stack_push(stk, int_stack_equal(stk));
+                int_stack_equal(stk);
                 //printf("%d\n", int_stack_equal(stk));
             } else if (strcmp(token, "<") == 0) {
                 //printf("%d\n", int_stack_lessThan(stk));
-                int_stack_push(stk, int_stack_lessThan(stk));
+                int_stack_lessThan(stk);
             } else if (strcmp(token, ">") == 0){
-                int_stack_push(stk, int_stack_greaterThan(stk));
+                int_stack_greaterThan(stk);
             }
 
             if (strcmp(token, "and") == 0){                
