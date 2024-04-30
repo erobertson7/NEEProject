@@ -20,7 +20,7 @@ int main() {
         stringList[i] = NULL;
         intList[i] = 0;
     }
-    printf("\033[0;95m"); //makes text pink
+    printf("\033[0;95m"); //makes text pink by mixing blue and red ANSI color code
     printf("Type 'TESTER' to exit\n");//Changed for testing to get files to build and run
     printf("\033[0m"); //resets back to original text color
     while ((read = getline(&line, &len, stdin)) != -1) {
